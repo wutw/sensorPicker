@@ -96,8 +96,8 @@ $('#target').sensorPicker();
 
 ### Options
 
-- 初始化改变默认配置项 `$().distpicker(options)`.
-- 用setDefaults方法改变默认配置项 `$.fn.distpicker.setDefaults(options)`.
+- 初始化改变默认配置项 `$().sensorpicker(options)`.
+- 用setDefaults方法改变默认配置项 `$.fn.sensorpicker.setDefaults(options)`.
 
 - 默认配置项，
 ```js
@@ -172,7 +172,7 @@ $("#a").val(data).trigger("change");//回显
 ```
 ## No conflict
 
-If you have to use other plugin with the same namespace, just call the `$.fn.distpicker.noConflict` method to revert to it.
+If you have to use other plugin with the same namespace, just call the `$.fn.sensorpicker.noConflict` method to revert to it.
 
 
 ```html
