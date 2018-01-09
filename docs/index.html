@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="addSensor1  detail" >
+  <p>新增传感器</p>
+  <div class="container1">
+    <!--提示信息-->
+    <span>使用说明</span> <br/>
+    <span>1、参数的选项由厂商、传感器型号和传感器类型共同决定的</span> <br/>
+    <span>2、所属网关支持按照业主企业进行筛选</span> <br/>
+    <span>3、多通道的传感器在新增时必须填写通道号。</span> <br/>
+  </div>
+  <div class="container2">
+    <form class="form-horizontal" role="form" id="addSensorForm">
+      <div data-toggle='sensorPicker' id='sensorPicker1'>
+        <div class="color">
+          <div class="form-group">
+            <label for="addSensorName" class="control-label col-xs-4">
+              <span class="iconfont icon-xing"></span>传感器名称</label>
+
+            <input type="text" class="col-xs-8 col-md-8 form-control setting" id="addSensorName" data-add="sensorName" name="addSensorName"
+                   placeholder="请输入传感器名称">
+
+          </div>
+          <div class="form-group">
+            <label for="addProductName"  class="control-label sensorPicker col-xs-4">厂商</label>
+
+            <select class="form-control col-xs-8 col-md-8 sensorPicker setting" data-add="productNameEnum"  id="addProductName" data-manufacturer='--选择厂商--' name="addProductName">
+              <option value="">请选择厂商</option>
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="addSensorType" class="control-label col-xs-4">传感器类型</label>
+
+            <select class="form-control col-xs-8 col-md-8 sensorPicker setting" data-sensor='--选择传感器类型--'  data-add="sensorTypeEnum"   id="addSensorType" name="addSensorType">
+              <option value="">请选择传感器类型</option>
+            </select>
+
+          </div>
+
+          <div class="form-group">
+            <label for="addSensorModel" class="control-label col-xs-4">传感器型号</label>
+
+            <select class="form-control col-xs-8 col-md-8 sensorPicker setting" id="addSensorModel"  data-add="sensorModelEnum"  data-model='--选择传感器型号--' name="addSensorModel">
+              <option value="">请选择传感器型号</option>
+            </select>
+
+          </div>
+          <div class='uuidItem none form-group' id="addUuidItem" >
+            <label for="addUuid" class="control-label col-xs-4"> uuid</label>
+
+            <input  type="text" class="form-control col-xs-8 col-md-8 setting" id="addUuid"  data-add="uuid"   name="addUuid"
+                    placeholder="请输入序列号" />
+
+          </div>
+
+          <div class="form-group ">
+            <label for="addOrg" class="control-label col-xs-4">所属网关</label>
+
+            <select class="form-control col-xs-4 col-md-4 companySelect js-example-basic-single "   id="addOrg" name="addOrg"
+            >
+              <option value="">请选择业主企业</option>
+              <option value="91">qqqqq</option>
+              <option value="0">其他</option>
+            </select>
+
+
+
+            <select class="form-control RtuSelect col-xs-4 col-md-4 js-example-basic-single setting "  data-add="rtuId"  id="addOrgRtu" name="addOrgRtu">
+              <option value="">请选择网关</option>
+
+            </select>
+
+
+
+          </div>
+
+
+
+          <div class="form-group  tunnelInput none" id="addTunnel">
+            <label for="addTunnelNumber" class="control-label col-xs-4">通道号</label>
+
+            <input type="text" class="form-control col-xs-8 col-md-8 setting" id="addTunnelNumber" data-add="tunnelNumber"  name="addTunnelNumber"
+                   placeholder="请输入通道号">
+
+
+          </div>
+        </div>
+        <p class="parameterLabel">参数配置</p>
+        <div class="color1">
+          <div class='lackUuid none' id="addLackUuid">
+            <div class="form-group">
+              <label  class="control-label col-xs-4"> 数据类型</label>
+
+              <select  data-type='--请选择数据类型--'   name="addDataType" id='addDataType' class='form-control sensorPicker col-xs-8 col-md-8'>
+
+              </select>
+
+            </div>
+            <div class='parameter'>
+
+            </div>
+          </div>
+          <div class='hasUuid none' id="addHasUuid">
+
+
+            <div>
+
+            </div>
+          </div>
+        </div>
+        <div class='form-group '>
+          <label class="passwordLabel col-md-4 col-sm-4"></label>
+                            <span class="loginInput col-md-8 col-sm-8" style=" margin-top: 20px;">
+
+                            <a class='btn modifyBtn' id="addSensorBtn">确定</a>
+                            <a class='cancel btn modifyBtn' id="cancelAddSensorBtn">取消</a>
+                        </span>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<div class="bindRtu hasTunnel  ">
+  <p>绑定传感器</p>
+  <div class="container1">
+    <p>使用说明</p>
+    <ol>
+      <li>
+        1.展示系统中所有的企业列表
+      </li>
+      <li>
+        1.选择传感器绑定至该网关上
+      </li>
+      <li>
+        2.选择完成后，点击<span class="iconfont icon-jiantou"></span>将选择的传感器和网关进行绑定
+      </li>
+      <li>
+        3.选择已绑定的传感器后，点击<span class="iconfont icon-jiantou-copy"></span>将传感器和网关解绑
+      </li>
+      <li>
+        4.不带有唯一标识(UUID)的传感器，只能通过点击“新增”后填入准确信息方能绑定网关，<span style="color:red">解绑这类传感器后传感器会被直接删除</span>
+      </li>
+    </ol>
+    <!--提示信息-->
+  </div>
+  <div class="container2 " id="bindSensorContent" >
+    <div  class=" restSensor sensorTable" >
+      <p>待绑定传感器</p>
+      <div class="searchContent" data-toggle='sensorPicker' id="sensorSearch">
+        <div class="col-md-4 col-sm-4">
+          <label  class="col-md-4 col-sm-4">厂商</label>
+          <select class="form-control col-md-8 col-sm-8 sensorPicker" data-manufacturer='--选择厂商--' >
+
+          </select>
+        </div>
+        <div  class="col-md-4 col-sm-4">
+          <label class="col-md-4 col-sm-4">类型</label>
+          <select  class="form-control col-md-8 col-sm-8 sensorPicker" data-sensor='--选择类型--'>
+
+          </select>
+        </div>
+        <div  class="col-md-4 col-sm-4">
+          <label class="col-md-4 col-sm-4">型号</label>
+          <select  class="form-control col-md-8 col-sm-8 sensorPicker" data-model='--选择型号--'>
+
+          </select>
+        </div>
+      </div>
+
+      <table  class="eyelinkTable table table-bordered table-hover table-condensed">
+        <thead>
+        <tr>
+          <th>传感器名称</th>
+          <th>型号</th>
+          <th>厂商</th>
+
+        </tr>
+        </thead>
+        <tbody id="restSensor">
+
+
+        </tbody>
+
+      </table>
+    </div>
+    <div class="arrow">
+      <span class="iconfont icon-jiantou " id="addBindSensor">绑定</span>
+      <span class="iconfont icon-jiantou-copy " id="removeBindSensor">解绑</span>
+    </div>
+    <div  class="bindedSensor sensorTable">
+      <p>已绑定的传感器</p>
+      <table  class="eyelinkTable table table-bordered table-hover table-condensed">
+        <thead>
+        <tr>
+          <th>传感器名称</th>
+          <th>通道号</th>
+          <th>传感器序列号</th>
+
+        </tr>
+        </thead>
+        <tbody id="bindedSensor">
+
+        </tbody>
+
+      </table>
+    </div>
+    <div class="choice clearfix"><a class="btn modifyBtn confirmBindSensor">确定</a><a class="btn modifyBtn cancelBindSensor">取消</a></div>
+
+  </div>
+
+</div>
+<!--
+绑定填通道-->
+
+  <div id="tunnelId" class="none">
+    <form id="tunnelIdForm" name="tunnelIdForm">
+      <div  class='form-group' style=" margin-top: 20px;width: 95%;">
+        <label class="passwordLabel col-md-4 col-sm-4">
+          通道号 </label>
+        <div class="col-md-8 col-sm-8">
+          <input class="loginInput form-control " id="tunnelBind" name="tunnelBind"/>
+        </div>
+      </div>
+    </form>
+
+  </div>
+<script src="js/jquery-2.12.js"></script>
+<script src="js/layer/layer.js"></script>
+<script src="js/sensorData.js"></script>
+<script src="js/sensorPicker.js"></script>
+<script>
+  (function(){
+    var sensorBind;//定义绑定对象
+
+    //销毁之前实例
+    try{
+      if( sensorBind.destroy && typeof( sensorBind.destroy) == "function"){
+        sensorBind.destroy();
+      }
+    }catch(e){
+
+    }
+
+    //绑定实例
+    sensorBind = $.bindSensor(sensorCondition);
+
+    //页面点确定时得到绑定传感器数据
+    $('.confirmBindSensor').on('click',function(e){
+      var data = sensorBind.confirmChoice(e);
+    })
+
+  })()
+
+</script>
+</body>
+</html>

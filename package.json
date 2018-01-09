@@ -1,0 +1,67 @@
+{
+  "name": "sensorPicker",
+  "description": "A simple jQuery plugin for choosing sensor informations",
+  "version": "1.0.0",
+  "main": "dist/sensorPicker.common.js",
+  "module": "dist/sensorPicker.esm.js",
+  "browser": "dist/sensorPicker.js",
+  "repository": "wutw/sensorPicker",
+  "homepage": "",
+  "license": "",
+  "author": {
+    "name": "wtw",
+    "url": "https://github.com/wutw/sensorPicker"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "keywords": [
+     "传感器",
+    "五级联动",
+    "传感器选择器",
+    "sensor",
+    "pick",
+    "picker",
+    "picking",
+    "jquery",
+    "plugin",
+    "jquery-plugin",
+    "html",
+    "css",
+    "javascript",
+    "front-end",
+    "web",
+    "development"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "clear": "del-cli dist",
+    "compress": "uglifyjs dist/sensorPicker.js -o dist/sensorPicker.min.js -c -m --comments /^!/",
+    "lint": "eslint src --fix",
+    "release": "npm run clear && npm run lint && npm run build && npm run compress",
+    "start": "rollup -c -m -w"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "del-cli": "^1.1.0",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "jquery": "^3.2.1",
+    "rollup": "^0.52.0",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-watch": "^4.3.1",
+    "uglify-js": "^3.2.0"
+
+  },
+
+  "peerDependencies": {
+    "jquery": ">= 1.9.1"
+
+
+  }
+}
