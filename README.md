@@ -3,7 +3,7 @@
 >Two plugins based on jquery for binding sensors,  filtering sensors.
 >两个插件，一个是绑定传感器，一个是传感器类型筛选
 
-案例：< https://wutw.github.io/sensorPicker/>
+案例：< https://wutw.github.io/sensorPicker/ >
 
 ## Table of contents
 
