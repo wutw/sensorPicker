@@ -627,7 +627,7 @@ var sensorPicker = function () {
 
             return new Promise(function (resolve, reject) {
                 $.ajax({
-                    type: 'POST',
+                    type: 'GET',
                     url: url,
                     async: true,
                     send: data,
