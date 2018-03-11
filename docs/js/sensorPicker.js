@@ -41,8 +41,8 @@ var DEFAULTS = {
     parameterLackUuid: '.lackUuid', //无uuid的数据类型div
 
 
-    rtuUrl: './docs/rtu.json',
-    tunnelUrl: './docs/tunnel.json'
+    rtuUrl: './rtu.json',
+    tunnelUrl: './tunnel.json'
 
 };
 
